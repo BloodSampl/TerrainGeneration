@@ -11,8 +11,10 @@ public class TerrainGeneration : MonoBehaviour
     Vector3[] vertices;
     int[] trinagles;
 
+    [SerializeField] Texture2D texture;
     [SerializeField] int xSize = 20;
     [SerializeField] int zSize = 20;
+    [SerializeField] int scale = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,8 @@ public class TerrainGeneration : MonoBehaviour
         {
             for(int x = 0; x <= xSize; x++)
             {
-                vertices[i] = new Vector3(x, 0, z);
+                Color c = texture.GetPixel(x,z);
+                vertices[i] = new Vector3(x, c.r * scale, z); //c.r * scale
                 i++;
             }
         }
