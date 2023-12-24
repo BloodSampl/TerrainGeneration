@@ -41,12 +41,12 @@ public class TerrainGeneration : MonoBehaviour
             }
         }
 
-        trinagles = new int[xSize * zSize * 6];
+        trinagles = new int[(xSize - 1) * (zSize - 1) * 6];
         int vert = 0;
         int tris = 0;
-        for (int z = 0;z < zSize; z++)
+        for (int z = 0;z < zSize -1; z++)
         {
-            for (int x = 0; x < xSize; x++)
+            for (int x = 0; x < xSize -1; x++)
             {
                 trinagles[tris + 0] = vert + 0;
                 trinagles[tris + 1] = vert + xSize + 1;
